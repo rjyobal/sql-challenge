@@ -32,8 +32,7 @@ FROM dept_manager a
 LEFT JOIN departments b
 ON a.dept_no=b.dept_no
 LEFT JOIN employees c
-ON a.emp_no=c.emp_no
-WHERE a.to_date >= CURRENT_DATE;
+ON a.emp_no=c.emp_no;
 
 -- List the department of each employee with the following information: employee number, last name, first name, and department name. --
 SELECT a.emp_no AS "Employee No", 
@@ -44,8 +43,7 @@ FROM dept_emp a
 LEFT JOIN employees b
 ON a.emp_no=b.emp_no
 LEFT JOIN departments c
-ON a.dept_no=c.dept_no
-WHERE a.to_date >= CURRENT_DATE;
+ON a.dept_no=c.dept_no;
 
 -- List all employees whose first name is "Hercules" and last names begin with "B." --
 SELECT emp_no AS "Employee No", 
@@ -64,8 +62,7 @@ LEFT JOIN employees b
 ON a.emp_no=b.emp_no
 LEFT JOIN departments c
 ON a.dept_no=c.dept_no
-WHERE c.dept_name = 'Sales'
-AND a.to_date >= CURRENT_DATE;
+WHERE c.dept_name = 'Sales';
 
 -- List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name. --
 SELECT a.emp_no AS "Employee No", 
@@ -77,8 +74,7 @@ LEFT JOIN employees b
 ON a.emp_no=b.emp_no
 LEFT JOIN departments c
 ON a.dept_no=c.dept_no
-WHERE (c.dept_name = 'Sales' OR c.dept_name = 'Development')
-AND a.to_date >= CURRENT_DATE;
+WHERE (c.dept_name = 'Sales' OR c.dept_name = 'Development');
 
 -- In descending order, list the frequency count of employee last names, i.e., how many employees share each last name. --
 SELECT last_name AS "Employee Last Name", count(last_name)
